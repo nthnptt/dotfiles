@@ -1,0 +1,8 @@
+#!/bin/bash
+STOW_FOLDERS="zsh"
+for folder in $(echo $STOW_FOLDERS)
+do
+        echo "setup $folder..."
+        stow -D $folder
+        stow $folder
+done
