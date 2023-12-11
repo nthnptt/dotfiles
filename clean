@@ -1,7 +1,6 @@
 #!/bin/bash
 for folder in $(cat stow.list)
 do
-        echo "setup $folder..."
+        echo "clean $folder..."
         stow -D $folder
-        stow $folder
 done
