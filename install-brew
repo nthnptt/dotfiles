@@ -1,0 +1,6 @@
+#!/bin/bash
+for app in $(cat brew.list)
+do
+	echo "setup $app..."
+	brew install $app
+done
