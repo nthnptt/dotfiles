@@ -2,3 +2,5 @@ zsh
 exa
 fzf
 tree
+ripgrep
+fd-find

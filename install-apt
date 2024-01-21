@@ -1,6 +1,5 @@
 #!/bin/bash
-for app in $(cat apt.list)
-do
+for app in $(cat apt.list); do
 	echo "setup $app..."
 	apt install -y $app
 done
