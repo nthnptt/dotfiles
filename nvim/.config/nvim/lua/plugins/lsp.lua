@@ -8,6 +8,8 @@ return {
         "psalm",
         "php-cs-fixer",
         "shellcheck",
+        "curlylint",
+        "twigcs",
       })
     end,
   },
