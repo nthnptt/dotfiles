@@ -5,7 +5,7 @@ return {
       vim.list_extend(opts.ensure_installed, {
         "stylua",
         "intelephense",
-        "psalm",
+        "phpactor",
         "php-cs-fixer",
         "shellcheck",
         "curlylint",
