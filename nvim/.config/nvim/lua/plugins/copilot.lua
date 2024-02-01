@@ -8,6 +8,7 @@ return {
     filetypes = {
       markdown = true,
       help = true,
+      ledger = false,
     },
   },
 }
