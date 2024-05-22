@@ -19,6 +19,7 @@ return {
         "emmet-ls",
         "css-lsp",
         "prettier",
+        "typescript-language-server",
       })
     end,
   },
