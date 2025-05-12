@@ -1,5 +1,5 @@
 #command improvement
-alias ls=exa
+alias ls=eza
 
 # nvim > vim
 alias vim=nvim
