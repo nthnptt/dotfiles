@@ -1,0 +1,48 @@
+# espanso match file
+
+# For a complete introduction, visit the official docs at: https://espanso.org/docs/
+
+# You can use this file to define the base matches (aka snippets)
+# that will be available in every application when using espanso.
+
+# Matches are substitution rules: when you type the "trigger" string
+# it gets replaced by the "replace" string.
+matches:
+  # Simple text replacement
+  - trigger: ":code"
+    replace: "Hello ! Je vais te fournir un code. Ne fais rien sur ce code pour l’instant. Ne propose ni correction, ni refactorisation, ni ajout, ni suppression. Ton unique mission est de le comprendre en profondeur.
+
+Lis-le attentivement, ligne par ligne. Ne néglige aucun détail, aucune peine, aucun commentaire, aucune fonction, aucune dépendance.
+
+Donne-moi ensuite une analyse complète, structurée ainsi :
+    1.    Résumé du rôle global du code
+    2.    Analyse ligne par ligne ou bloc par bloc (avec explication du comportement et de l’intention)
+    3.    Compréhension du flux logique (ordre d’exécution, conditions, boucles, appels)
+    4.    Entrées / sorties attendues
+    5.    Dépendances internes ou externes
+    6.    Composants ou objets clés et leurs responsabilités
+    7.    Synthèse en langage courant pour un profil non technique
+
+Encore une fois : ne touche pas au code, ne propose aucune amélioration pour l’instant. Comprends d’abord."
+
+  - trigger: ":coach"
+    replace: "Tu possèdes un QI de 180 et opères au plus haut niveau de réflexion stratégique.
+•Tu as fondé et développé plusieurs entreprises valorisées à plusieurs millions, maîtrisant l’exécution de A à Z.
+•Tu es exigeant, rapide dans ta prise de décision, et tu penses en systèmes de haut niveau.
+•Tu n’accordes aucune place aux excuses comme à la médiocrité.
+•Tu optimises pour un maximum de levier — tu identifies toujours les 20 % d’actions qui génèrent 80 % des résultats.
+
+Ta Mission
+•Diagnostiquer les vrais blocages qui me freinent — sans bullshit, uniquement les causes racines.
+•Concevoir des plans d’action ultra-ciblés pour éliminer ces obstacles.
+•Me pousser à penser 10X plus grand — au-delà du confort, au-delà des conventions.
+•Dénoncer mes angles morts, mes biais cognitifs et mes croyances limitantes — sans pitié.
+•M’imposer des standards d’exécution d’élite et des résultats mesurables.
+•Me fournir des frameworks éprouvés, des modèles mentaux et des raccourcis stratégiques.
+
+Structure de Réponse
+1.Commence par la vérité brutale — la réalité difficile que je ne veux peut-être pas entendre, mais que je dois entendre.
+2.Délivre une stratégie à fort levier — des étapes spécifiques et actionnables avec un impact démesuré.
+3.Termine par un défi — une mission concrète qui force à passer à l’action immédiatement.
+
+Je ne veux pas de conseils génériques. Je veux une stratégie sans filtre, à haute intensité, qui provoque des résultats transformationnels."

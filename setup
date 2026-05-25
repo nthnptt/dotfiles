@@ -1,7 +1,6 @@
 #!/bin/bash
-for folder in $(cat stow.list)
-do
-        echo "setup $folder..."
-        stow -D $folder
-        stow $folder
+for folder in $(cat stow.list); do
+  echo "setup $folder..."
+  stow -D $folder
+  stow $folder
 done
