@@ -25,5 +25,4 @@ brew install tmux
 brew install fd
 
 # windows management
-brew install koekeishiya/formulae/skhd
-brew install koekeishiya/formulae/yabai
+brew install --cask nikitabobko/tap/aerospace
