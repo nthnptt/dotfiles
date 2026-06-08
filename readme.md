@@ -24,3 +24,10 @@ sudo ./apt-install
 ### Customize
 Add or remove file from `apt.list`
 
+## MacOS
+### Install dependencies
+```sh
+bash install-macos-app.sh
+```
+### Customize
+Add or remove line from `install-macos-app.sh` installation script
