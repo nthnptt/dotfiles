@@ -31,3 +31,7 @@ bash install-macos-app.sh
 ```
 ### Customize
 Add or remove line from `install-macos-app.sh` installation script
+
+## Tmux
+We are using [tpm](https://github.com/tmux-plugins/tpm) plugin to setup tmux.o
+You should install it and use command `prefix + I` to install it.
