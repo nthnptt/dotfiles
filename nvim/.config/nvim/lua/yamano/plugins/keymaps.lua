@@ -28,3 +28,16 @@ end, { desc = "Notification history" })
 map("n", ";h", function()
 	Snacks.picker.git_diff()
 end, { desc = "Git hunks" })
+
+map("n", "sf", function()
+	require("oil").open_float(nil, { preview = {} })
+end, { desc = "File explorer" })
+vim.api.nvim_create_autocmd("FileType", {
+	group = vim.api.nvim_create_augroup("yamano.oil", { clear = true }),
+	pattern = "oil",
+	callback = function(args)
+		local actions = require("oil.actions")
+		map("n", "h", actions.parent.callback, { buffer = args.buf, desc = "Parent directory" })
+		map("n", "q", actions.close.callback, { buffer = args.buf, desc = "Close oil" })
+	end,
+})

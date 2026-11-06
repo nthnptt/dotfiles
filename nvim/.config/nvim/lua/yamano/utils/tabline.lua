@@ -20,6 +20,16 @@ local function label(tab)
 
 	local modified = vim.bo[buf].modified and "[+] " or ""
 	local path = vim.api.nvim_buf_get_name(buf)
+	local dir = path:match("^oil://(.*)$")
+	if dir then
+		dir = vim.fn.fnamemodify(dir, ":~"):gsub("(.)/$", "%1")
+		local len = vim.fn.strchars(dir)
+		if len > 20 then
+			dir = "..." .. vim.fn.strcharpart(dir, len - 17)
+		end
+		dir = dir:gsub("%%", "%%%%")
+		return modified .. dir
+	end
 	if path == "" then
 		return modified .. "[No Name]"
 	end
