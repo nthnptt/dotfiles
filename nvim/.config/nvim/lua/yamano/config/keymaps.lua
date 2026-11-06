@@ -25,3 +25,11 @@ map("n", "<C-m>", "<C-i>", { desc = "Jump forward" })
 
 map("n", "<leader>o", "o<Esc>^Da", { desc = "Open line below without comment" })
 map("n", "<leader>O", "O<Esc>^Da", { desc = "Open line above without comment" })
+
+map("n", "<leader>bd", function()
+	for _, buf in ipairs(vim.fn.getbufinfo({ buflisted = 1 })) do
+		if #buf.windows == 0 and buf.changed == 0 then
+			pcall(vim.api.nvim_buf_delete, buf.bufnr, {})
+		end
+	end
+end, { desc = "Close hidden buffers" })
