@@ -28,6 +28,7 @@ vim.o.showmatch = true
 vim.o.matchtime = 2
 vim.o.title = true
 vim.opt.fillchars:append({ diff = "╱" })
+Yamano.tabline.setup()
 
 vim.o.ignorecase = true
 vim.o.smartcase = true
