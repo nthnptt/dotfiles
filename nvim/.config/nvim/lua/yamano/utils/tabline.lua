@@ -5,7 +5,7 @@ local right_edge = "\u{E0B8}"
 
 local function set_highlights()
 	local c = require("solarized-osaka.colors").setup()
-	vim.api.nvim_set_hl(0, "YamanoTabActive", { fg = c.base04, bg = c.yellow, bold = true })
+	vim.api.nvim_set_hl(0, "YamanoTabActive", { fg = c.base4, bg = c.yellow, bold = true })
 	vim.api.nvim_set_hl(0, "YamanoTabActiveSep", { fg = c.yellow })
 	vim.api.nvim_set_hl(0, "YamanoTabInactive", { fg = c.base0, bg = c.base02 })
 	vim.api.nvim_set_hl(0, "YamanoTabInactiveSep", { fg = c.base02 })
