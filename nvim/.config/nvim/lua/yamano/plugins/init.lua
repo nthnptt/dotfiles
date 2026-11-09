@@ -27,6 +27,7 @@ vim.pack.add({
 	{ src = "https://github.com/saghen/blink.cmp", version = vim.version.range("^1") },
 	"https://github.com/nvim-mini/mini.pairs",
 	"https://github.com/stevearc/conform.nvim",
+	"https://github.com/lewis6991/gitsigns.nvim",
 })
 
 require("yamano.plugins.ui")
@@ -36,4 +37,5 @@ require("yamano.plugins.syntax")
 require("yamano.plugins.completion")
 require("yamano.plugins.lsp")
 require("yamano.plugins.formatting")
+require("yamano.plugins.git")
 require("yamano.plugins.keymaps")

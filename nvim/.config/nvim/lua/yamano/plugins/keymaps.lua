@@ -114,3 +114,53 @@ end, { desc = "Next diagnostic" })
 map({ "n", "x" }, "<leader>f", function()
 	require("conform").format({ lsp_format = "fallback" })
 end, { desc = "Format" })
+
+-- Open the file as of the commit that last touched the cursor line, at that line.
+local function open_line_commit()
+	local file = vim.api.nvim_buf_get_name(0)
+	local lnum = vim.fn.line(".")
+	local blame = vim.system(
+		{ "git", "blame", "--porcelain", "-L", lnum .. "," .. lnum, "--", file },
+		{ cwd = vim.fs.dirname(file), text = true }
+	):wait()
+	local sha, orig_lnum = (blame.stdout or ""):match("^(%x+) (%d+)")
+	if blame.code ~= 0 or not sha then
+		vim.notify("Cannot blame this line", vim.log.levels.WARN)
+		return
+	end
+	if sha:match("^0+$") then
+		vim.notify("Line not committed yet", vim.log.levels.WARN)
+		return
+	end
+	require("gitsigns").show(sha .. ":%", { open = "tabnew" }, function(err)
+		vim.schedule(function()
+			if err then
+				vim.notify(err, vim.log.levels.ERROR)
+				return
+			end
+			pcall(vim.api.nvim_win_set_cursor, 0, { tonumber(orig_lnum), 0 })
+		end)
+	end)
+end
+
+map("n", "<leader>gb", function()
+	require("gitsigns").blame_line()
+end, { desc = "Blame line" })
+map("n", "<leader>gB", function()
+	require("gitsigns").blame()
+end, { desc = "Blame buffer" })
+map("n", "<leader>go", open_line_commit, { desc = "Open file at line's commit" })
+map("n", "<leader>gs", function()
+	local gitsigns = require("gitsigns")
+	if #(gitsigns.get_hunks(0) or {}) > 0 then
+		gitsigns.stage_buffer()
+	else
+		gitsigns.reset_buffer_index()
+	end
+end, { desc = "Stage / unstage buffer" })
+map("n", "<leader>gh", function()
+	require("gitsigns").stage_hunk()
+end, { desc = "Stage / unstage hunk" })
+map("x", "<leader>gh", function()
+	require("gitsigns").stage_hunk({ vim.fn.line("v"), vim.fn.line(".") })
+end, { desc = "Stage / unstage selected lines" })
