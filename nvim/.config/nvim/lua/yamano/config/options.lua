@@ -60,6 +60,25 @@ vim.o.foldmethod = "expr"
 vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.o.foldlevel = 99
 
+local diagnostic_icons = Yamano.icons.diagnostics
+vim.diagnostic.config({
+	underline = true,
+	update_in_insert = false,
+	severity_sort = true,
+	virtual_text = {
+		prefix = "●",
+		source = "if_many",
+	},
+	signs = {
+		text = {
+			[vim.diagnostic.severity.ERROR] = diagnostic_icons.Error,
+			[vim.diagnostic.severity.WARN] = diagnostic_icons.Warn,
+			[vim.diagnostic.severity.INFO] = diagnostic_icons.Info,
+			[vim.diagnostic.severity.HINT] = diagnostic_icons.Hint,
+		},
+	},
+})
+
 require("vim._core.ui2").enable({
 	msg = {
 		target = "msg",
