@@ -33,3 +33,19 @@ map("n", "<leader>bd", function()
 		end
 	end
 end, { desc = "Close hidden buffers" })
+
+-- Copy `<path>#L<line>` to the system clipboard, ready to paste to an agent.
+local function copy_path(modifier)
+	local path = vim.fn.expand("%" .. modifier)
+	if path == "" then
+		return
+	end
+	vim.fn.setreg("+", path .. "#L" .. vim.fn.line("."))
+end
+
+map("n", "<leader>yf", function()
+	copy_path(":.")
+end, { desc = "Copy relative path with line" })
+map("n", "<leader>yp", function()
+	copy_path(":p")
+end, { desc = "Copy absolute path with line" })
