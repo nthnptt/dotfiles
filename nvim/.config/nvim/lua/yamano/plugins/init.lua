@@ -24,11 +24,13 @@ vim.pack.add({
 	"https://github.com/neovim/nvim-lspconfig",
 	"https://github.com/mason-org/mason.nvim",
 	"https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim",
+	{ src = "https://github.com/saghen/blink.cmp", version = vim.version.range("^1") },
 })
 
 require("yamano.plugins.ui")
 require("yamano.plugins.snacks")
 require("yamano.plugins.navigation")
 require("yamano.plugins.syntax")
+require("yamano.plugins.completion")
 require("yamano.plugins.lsp")
 require("yamano.plugins.keymaps")

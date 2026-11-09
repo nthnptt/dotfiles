@@ -23,14 +23,14 @@ require("mason-tool-installer").setup({
 })
 
 vim.lsp.config("*", {
-	capabilities = {
+	capabilities = require("blink.cmp").get_lsp_capabilities({
 		workspace = {
 			fileOperations = {
 				didRename = true,
 				willRename = true,
 			},
 		},
-	},
+	}),
 })
 
 vim.lsp.enable({
