@@ -26,6 +26,7 @@ vim.pack.add({
 	"https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim",
 	{ src = "https://github.com/saghen/blink.cmp", version = vim.version.range("^1") },
 	"https://github.com/nvim-mini/mini.pairs",
+	"https://github.com/stevearc/conform.nvim",
 })
 
 require("yamano.plugins.ui")
@@ -34,4 +35,5 @@ require("yamano.plugins.navigation")
 require("yamano.plugins.syntax")
 require("yamano.plugins.completion")
 require("yamano.plugins.lsp")
+require("yamano.plugins.formatting")
 require("yamano.plugins.keymaps")
