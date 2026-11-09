@@ -21,10 +21,14 @@ vim.pack.add({
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
 	"https://github.com/folke/todo-comments.nvim",
 	"https://github.com/brenoprata10/nvim-highlight-colors",
+	"https://github.com/neovim/nvim-lspconfig",
+	"https://github.com/mason-org/mason.nvim",
+	"https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim",
 })
 
 require("yamano.plugins.ui")
 require("yamano.plugins.snacks")
 require("yamano.plugins.navigation")
 require("yamano.plugins.syntax")
+require("yamano.plugins.lsp")
 require("yamano.plugins.keymaps")
