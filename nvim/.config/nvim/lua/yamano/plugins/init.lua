@@ -29,6 +29,7 @@ vim.pack.add({
 	"https://github.com/stevearc/conform.nvim",
 	"https://github.com/lewis6991/gitsigns.nvim",
 	"https://github.com/nvim-mini/mini.diff",
+	"https://github.com/esmuellert/codediff.nvim",
 })
 
 require("yamano.plugins.ui")

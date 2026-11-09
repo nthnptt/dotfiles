@@ -183,3 +183,15 @@ map("n", "[c", function()
 		require("mini.diff").goto_hunk("prev")
 	end
 end, { desc = "Previous hunk" })
+
+map("n", "<leader>dv", function()
+	local lifecycle = require("codediff.ui.lifecycle")
+	local tab = vim.api.nvim_get_current_tabpage()
+	if lifecycle.get_session(tab) then
+		lifecycle.close(tab)
+	else
+		vim.cmd("CodeDiff")
+	end
+end, { desc = "Toggle diff view" })
+map("n", "<leader>dh", "<Cmd>CodeDiff history %<CR>", { desc = "File history" })
+map("n", "<leader>dH", "<Cmd>CodeDiff history<CR>", { desc = "Repo history" })
