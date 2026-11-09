@@ -28,6 +28,11 @@ end, { desc = "Notification history" })
 map("n", ";h", function()
 	Snacks.picker.git_diff()
 end, { desc = "Git hunks" })
+-- Lazygit's `e` (see lazygit/config.yml) focuses this window back before opening the file.
+map("n", ";g", function()
+	vim.g.lazygit_origin_win = vim.api.nvim_get_current_win()
+	Snacks.lazygit()
+end, { desc = "Lazygit" })
 
 map("n", "sf", function()
 	require("oil").open_float(nil, { preview = {} })

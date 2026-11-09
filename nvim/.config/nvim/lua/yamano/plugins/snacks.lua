@@ -4,6 +4,11 @@ require("snacks").setup({
 	statuscolumn = { enabled = true },
 	words = { enabled = true },
 	scroll = { enabled = false },
+	lazygit = {
+		theme = {
+			activeBorderColor = { fg = "WarningMsg", bold = true },
+		},
+	},
 	picker = {
 		enabled = true,
 		sources = {

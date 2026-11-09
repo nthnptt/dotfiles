@@ -1,0 +1,13 @@
+gui:
+  mouseEvents: false
+
+git:
+  autoFetch: false
+  pagers:
+    - pager: delta --dark --paging=never --syntax-theme="Solarized (dark)"
+
+# Inside Neovim ($NVIM is set): quit lazygit, focus the window `;g` was pressed in,
+# then open the file there. Outside Neovim: plain `nvim <file>`.
+os:
+  edit: '[ -z "$NVIM" ] && (nvim -- {{filename}}) || (nvim --server "$NVIM" --remote-send "q" && nvim --server "$NVIM" --remote-send "<C-\><C-N>:lua pcall(vim.api.nvim_set_current_win, vim.g.lazygit_origin_win)<CR>" && nvim --server "$NVIM" --remote {{filename}})'
+  editAtLine: '[ -z "$NVIM" ] && (nvim +{{line}} -- {{filename}}) || (nvim --server "$NVIM" --remote-send "q" && nvim --server "$NVIM" --remote-send "<C-\><C-N>:lua pcall(vim.api.nvim_set_current_win, vim.g.lazygit_origin_win)<CR>" && nvim --server "$NVIM" --remote {{filename}} && nvim --server "$NVIM" --remote-send ":{{line}}<CR>")'
