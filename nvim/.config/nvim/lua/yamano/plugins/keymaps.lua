@@ -34,6 +34,41 @@ map("n", ";g", function()
 	Snacks.lazygit()
 end, { desc = "Lazygit" })
 
+-- First match wins: PHP, then Rust, then JS.
+local registry_files = { "composer.json", "Cargo.toml", "package.json" }
+
+map("n", "<leader>j", function()
+	local start = vim.bo.buftype == "" and vim.fn.expand("%:p:h") or ""
+	if start == "" then
+		start = vim.fn.getcwd()
+	end
+	local file
+	for _, name in ipairs(registry_files) do
+		file = vim.fs.find(name, { path = start, upward = true })[1]
+		if file then
+			break
+		end
+	end
+	if not file then
+		vim.notify("No composer.json, Cargo.toml or package.json found", vim.log.levels.WARN)
+		return
+	end
+	Snacks.win({
+		file = file,
+		width = 0.8,
+		height = 0.8,
+		border = "rounded",
+		enter = true,
+		keys = { q = "close", ["<Esc>"] = "close" },
+		-- The buffer is the real file: drop the close keys so they don't stick to it.
+		on_close = function(win)
+			for _, lhs in ipairs({ "q", "<Esc>" }) do
+				pcall(vim.keymap.del, "n", lhs, { buffer = win.buf })
+			end
+		end,
+	})
+end, { desc = "Open project registry config" })
+
 map("n", "sf", function()
 	require("oil").open_float(nil, { preview = {} })
 end, { desc = "File explorer" })

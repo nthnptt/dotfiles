@@ -49,3 +49,20 @@ end, { desc = "Copy relative path with line" })
 map("n", "<leader>yp", function()
 	copy_path(":p")
 end, { desc = "Copy absolute path with line" })
+
+local short_langs = {
+	typescriptreact = "tsx",
+	javascriptreact = "jsx",
+	typescript = "ts",
+	javascript = "js",
+}
+
+-- Copy the selection as a fenced block with Obsidian-style attributes.
+map("x", "<leader>cc", function()
+	local lines = vim.fn.getregion(vim.fn.getpos("v"), vim.fn.getpos("."), { type = vim.fn.mode() })
+	local first_line = math.min(vim.fn.line("v"), vim.fn.line("."))
+	local lang = short_langs[vim.bo.filetype] or vim.bo.filetype
+	local header = string.format('```%s filename="%s" line=%d', lang, vim.fn.expand("%:."), first_line)
+	vim.fn.setreg("+", table.concat({ header, table.concat(lines, "\n"), "```" }, "\n") .. "\n")
+	vim.api.nvim_feedkeys(vim.keycode("<Esc>"), "n", false)
+end, { desc = "Copy selection as Markdown code block" })
