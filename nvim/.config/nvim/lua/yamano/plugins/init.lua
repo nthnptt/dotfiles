@@ -25,6 +25,7 @@ vim.pack.add({
 	"https://github.com/mason-org/mason.nvim",
 	"https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim",
 	{ src = "https://github.com/saghen/blink.cmp", version = vim.version.range("^1") },
+	"https://github.com/nvim-mini/mini.pairs",
 })
 
 require("yamano.plugins.ui")
