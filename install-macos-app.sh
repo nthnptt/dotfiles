@@ -23,6 +23,8 @@ brew install fzf
 brew install tree
 brew install tmux
 brew install fd
+brew install git-delta
+brew install lazygit
 
 # windows management
 brew install --cask nikitabobko/tap/aerospace
