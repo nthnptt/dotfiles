@@ -33,6 +33,15 @@ map("n", ";g", function()
 	vim.g.lazygit_origin_win = vim.api.nvim_get_current_win()
 	Snacks.lazygit()
 end, { desc = "Lazygit" })
+-- A markdown file opens directly, anything else opens leaf's picker in the cwd.
+map("n", ";m", function()
+	local cmd = { "leaf", "--theme", Yamano.leaf.write_theme() }
+	local file = vim.api.nvim_buf_get_name(0)
+	if vim.bo.filetype == "markdown" and vim.uv.fs_stat(file) then
+		vim.list_extend(cmd, { "--watch", file })
+	end
+	Snacks.terminal(cmd)
+end, { desc = "Leaf" })
 
 -- First match wins: PHP, then Rust, then JS.
 local registry_files = { "composer.json", "Cargo.toml", "package.json" }
