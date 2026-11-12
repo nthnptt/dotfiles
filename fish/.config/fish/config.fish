@@ -21,6 +21,7 @@ if status is-interactive
     alias la 'ls -al'
     alias vim nvim
     alias g git
+    alias grep rg
 end
 
 set -l local_config $__fish_config_dir/config_local.fish
