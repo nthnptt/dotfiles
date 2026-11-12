@@ -14,3 +14,11 @@ set fish_complete_path $fish_complete_path[1] $fisher_path/completions $fish_com
 for file in $fisher_path/conf.d/*.fish
     source $file
 end
+
+if status is-interactive
+    alias ls 'eza --icons=auto --git'
+    alias ll 'ls -l'
+    alias la 'ls -al'
+    alias vim nvim
+    alias g git
+end
