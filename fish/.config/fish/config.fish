@@ -22,3 +22,7 @@ if status is-interactive
     alias vim nvim
     alias g git
 end
+
+set -l local_config $__fish_config_dir/config_local.fish
+test -f $local_config; or touch $local_config
+source $local_config
