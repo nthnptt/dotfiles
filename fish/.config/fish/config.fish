@@ -27,3 +27,4 @@ end
 set -l local_config $__fish_config_dir/config_local.fish
 test -f $local_config; or touch $local_config
 source $local_config
+~/.local/bin/mise activate fish | source
